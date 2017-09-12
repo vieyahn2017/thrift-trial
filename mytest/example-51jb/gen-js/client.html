@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements. See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership. The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License. You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Thrift Javascript Bindings - Tutorial Example</title>
+
+  <script src="thrift.js" type="text/javascript"></script>
+  <script src="jquery-3.2.0.min.js" type="text/javascript"></script>
+  <script src="server_types.js"  type="text/javascript"></script>
+  <script src="serDemo.js" type="text/javascript"></script>
+
+  <script type="text/javascript" charset="utf-8">
+  //<![CDATA[
+  $(document).ready(function(){
+
+  });
+
+  function calc() {
+    var transport = new Thrift.Transport("http://10.0.0.161:9090");
+    var protocol  = new Thrift.Protocol(transport);
+
+    var client    = new serDemoClient(protocol);
+
+    var msg = new message();
+    // msg.seqId = parseInt($("#seqId").val());
+    // msg.content = $("#content").val();
+    msg.seqId = 1;  
+    msg.content = "js client message"; 
+    console.log(msg);
+
+    client.put(msg); 
+  }
+  
+  function auto_calc() {
+    if ($('#autoupdate:checked').val() !== undefined) {
+      calc();
+    }
+  }
+  //]]>
+  </script>
+
+</head>
+<body>
+  <h2>Thrift Javascript Bindings</h2>
+  <form action="">
+  <table class="calculator">
+    <tr>
+      <td>seqId</td>
+      <td><input type="text" id="seqId" value="20" onkeyup="javascript:auto_calc();"/></td>
+    </tr>
+    <tr>
+      <td>content</td>
+      <td><input type="text" id="content" value="js client message" onkeyup="javascript:auto_calc();"/></td></tr>
+<!--     <tr>
+      <td>result</td>
+      <td><input type="text" id="result" value=""/></td></tr> -->
+    <tr>
+      <td><input type="checkbox" id="autoupdate" checked="checked"/>autoupdate</td>
+      <td><input type="button" id="calculate" value="calculate" onclick="javascript:calc();"/></td>
+    </tr>
+  </table>
+  </form>
+  
+
+</body>
+</html>
