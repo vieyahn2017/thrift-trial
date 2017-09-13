@@ -29,7 +29,7 @@ g++ -g -DHAVE_NETINET_IN_H -I. -I/usr/local/include/thrift -L/usr/local/lib Serv
 生成server可执行程序； 
  
 
-#3.实现server非阻塞
+# 3.实现server非阻塞
 可以修改Serv_server.skeleton.cpp文件，做成非阻塞server:    
  新建server.cpp文件（参照Serv_server.skeleton.cpp并参照nonblockingServer的写法）： 
 

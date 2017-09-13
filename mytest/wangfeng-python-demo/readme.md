@@ -1,10 +1,10 @@
 # python thrift 服务端与客户端使用
 // 出自 “IT民工--小枫” 博客， http://wangfeng7399.blog.51cto.com/3518031/1696108
 
-#一、简介
+# 一、简介
 thrift是一个软件框架，用来进行可扩展且跨语言的服务的开发。它结合了功能强大的软件堆栈和代码生成引擎，以构建在 C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk, and OCaml 这些编程语言间无缝结合的、高效的服务。
 
-#二、安装
+# 二、安装
 1.下载地址    
 
 2.安装
@@ -25,7 +25,7 @@ thrift是一个软件框架，用来进行可扩展且跨语言的服务的开�
 3.安装python插件   
 pip install thrift
 
-#三、准备服务器端
+# 三、准备服务器端
 1.编辑接口文件 helloworld.thrift:
 ```cpp
 service HelloWorld {
